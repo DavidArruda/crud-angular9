@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component'; /*REQUISIÇÕES AJAX*/
 import { RouterModule, Routes } from '@angular/router';
 import { ModuleWithProviders} from '@angular/compiler/src/core';
 import {NgxMaskModule, IConfig} from 'ngx-mask';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 export const appRouters: Routes = [
@@ -41,7 +42,8 @@ export const optionsMask: Partial<IConfig> | (() => Partial<IConfig>) = {};
     HttpClientModule,
     routes,
     HttpInterceptorModule,
-    NgxMaskModule.forRoot(optionsMask)
+    NgxMaskModule.forRoot(optionsMask),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
