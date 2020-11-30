@@ -57,11 +57,11 @@
     <div class="card-body" style="padding-left: 1px;">
       <div class="form-row">
         <div class="form-group col-md3">
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" [(ngModel)]="telefone.numero" id="numero" name="numero">
         </div>
 
         <div class="form-group col-md3">
-          <button class="btn btn-primary">ADICIONAR</button>
+          <button class="btn btn-primary" (click)="addFone()" >ADICIONAR</button>
         </div>
       </div>
     </div>
@@ -69,10 +69,10 @@
 
   <table class="table">
     <tbody>
-      <tr *ngFor="let fone of usuario.telefones">
+      <tr *ngFor="let fone of usuario.telefones; let i = index">
         <td>{{fone.id}}</td>
         <td>{{fone.numero}}</td>
-        <td><button class="btn btn-danger">DELETAR</button></td>
+        <td><button class="btn btn-danger" (click)="deletarTelefone(fone.id, i)" >DELETAR</button></td>
       </tr>
     </tbody>
 
