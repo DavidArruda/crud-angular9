@@ -27,7 +27,7 @@ export class UsuarioComponent implements OnInit {
   deleteUsuario(id: number, index: number) {
     if (confirm('Deseja remover este usuário ?')) {
       this.usuarioService.deletarUsuario(id).subscribe(data => {
-        this.students.splice(index, 1); //Remove da tela
+        this.students.splice(index, 1); // Remove da tela
 
       });
     }
