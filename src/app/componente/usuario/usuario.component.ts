@@ -14,6 +14,7 @@ export class UsuarioComponent implements OnInit {
   students: Array<User[]>;
   nome: string;
   total: number;
+  p: number = 1;
 
   constructor(private usuarioService: UsuarioService) { }
 
