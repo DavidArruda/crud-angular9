@@ -11,7 +11,7 @@ import { UsuarioService } from 'src/app/service/usuario.service';
 })
 export class UsuarioComponent implements OnInit {
 
-  students: Observable<User[]>;
+  students: Array<User[]>;
   nome: string;
   total: number;
 
@@ -24,13 +24,11 @@ export class UsuarioComponent implements OnInit {
     });
   }
 
-  deleteUsuario(id: number) {
+  deleteUsuario(id: number, index: number) {
     if (confirm('Deseja remover este usuário ?')) {
       this.usuarioService.deletarUsuario(id).subscribe(data => {
-        console.log('Retorno do método delete :' + data);
-        this.usuarioService.getStudentList().subscribe(data => {
-          this.students = data;
-        });
+        this.students.splice(index, 1); //Remove da tela
+
       });
     }
   }
