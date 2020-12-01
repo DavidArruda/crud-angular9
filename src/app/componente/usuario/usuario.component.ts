@@ -13,12 +13,14 @@ export class UsuarioComponent implements OnInit {
 
   students: Observable<User[]>;
   nome: string;
+  total: number;
 
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
     this.usuarioService.getStudentList().subscribe(data => {
-      this.students = data;
+      this.students = data.content;
+      this.total = data.totalElements;
     });
   }
 
@@ -33,9 +35,16 @@ export class UsuarioComponent implements OnInit {
     }
   }
 
-  consultarUser(){
+  consultarUser() {
     this.usuarioService.consultarUser(this.nome).subscribe(data => {
       this.students = data;
+    });
+  }
+
+  loadPage(page) {
+    this.usuarioService.getStudentListPage(page - 1).subscribe(data => {
+      this.students = data.content;
+      this.total = data.totalElements;
     });
   }
 
