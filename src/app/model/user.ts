@@ -8,6 +8,7 @@ export class User {
   senha: string;
   salario: number;
   taxaComissao: number;
+  dataNascimetno: string;
 
   telefones: Array<Telefone>;
 }
